@@ -44,34 +44,33 @@ class ChartView @JvmOverloads constructor(context: Context,
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         drawRect(canvas)
     }
 
-    private fun drawRect(canvas: Canvas?){
+    private fun drawRect(canvas: Canvas){
         for(i in 0..3){
             val startX = paddingX + chartPaddings * i + columnWidth * i
             val endX = startX + columnWidth
             val endY = paddingY + columnHeight * 3
             val startY = paddingY + columnHeight * i
             val rect = RectF(startX, startY, endX, endY)
-            canvas?.drawRect(rect, paint)
+            canvas.drawRect(rect, paint)
         }
     }
 
-    private fun dpToPx(dp : Int) : Float {
-        return TypedValue.applyDimension(
+    private fun dpToPx(dp : Int) : Float =  TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(),
             context.resources.displayMetrics
         )
-    }
+
 
     companion object{
         private const val CHART_PADDINGS = 72
         private const val PADDING_X = 16
         private const val PADDING_Y = 36
-        private const val WIDTH = 100
-        private const val HEIGHT = 200
+        private const val WIDTH = 50
+        private const val HEIGHT = 100
     }
 }
