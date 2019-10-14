@@ -65,7 +65,6 @@ class ChartView @JvmOverloads constructor(context: Context,
             context.resources.displayMetrics
         )
 
-
     companion object{
         private const val CHART_PADDINGS = 72
         private const val PADDING_X = 16
